@@ -23,19 +23,19 @@ final availableYearsProvider = FutureProvider<List<int>>((ref) async {
   } catch (e) {
     // fallback
   }
-  return [2026];
+  return [DateTime.now().year];
 });
 
 class SelectedYearNotifier extends Notifier<int> {
   @override
-  int build() => 2026;
+  int build() => DateTime.now().year;
   void updateState(int val) => state = val;
 }
 final selectedYearProvider = NotifierProvider<SelectedYearNotifier, int>(SelectedYearNotifier.new);
 
 class SelectedMonthNotifier extends Notifier<int?> {
   @override
-  int? build() => null;
+  int? build() => DateTime.now().month;
   void updateState(int? val) => state = val;
 }
 final selectedMonthProvider = NotifierProvider<SelectedMonthNotifier, int?>(SelectedMonthNotifier.new);

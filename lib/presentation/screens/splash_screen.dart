@@ -39,10 +39,10 @@ class _SplashScreenState extends State<SplashScreen>
 
     _controller.forward();
 
-    // Navigate to home after 2.5 seconds
+    // Navigate to choices after 2.5 seconds
     Timer(const Duration(milliseconds: 2500), () {
       if (mounted) {
-        context.go('/home');
+        context.go('/choice');
       }
     });
   }

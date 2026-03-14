@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../domain/providers.dart';
 import '../widgets/holiday_calendar_view.dart';
+import 'package:go_router/go_router.dart';
+import 'package:flutter/services.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
@@ -11,10 +13,20 @@ class HomeScreen extends ConsumerWidget {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => context.go('/choice'),
+        ),
         title: const Text(
           'Indian Bank Holiday Calendar',
           style: TextStyle(fontWeight: FontWeight.w500),
         ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.exit_to_app),
+            onPressed: () => SystemNavigator.pop(),
+          ),
+        ],
       ),
       body: SafeArea(
         bottom: true,

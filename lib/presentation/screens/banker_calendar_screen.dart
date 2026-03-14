@@ -4,6 +4,8 @@ import '../../domain/providers.dart';
 import '../widgets/holiday_calendar_view.dart';
 import '../../utils/leave_optimizer.dart';
 import 'package:intl/intl.dart';
+import 'package:go_router/go_router.dart';
+import 'package:flutter/services.dart';
 
 class BankerCalendarScreen extends ConsumerStatefulWidget {
   const BankerCalendarScreen({super.key});
@@ -25,10 +27,20 @@ class _BankerCalendarScreenState extends ConsumerState<BankerCalendarScreen> {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => context.go('/choice'),
+        ),
         title: const Text(
           'Banker Holiday Optimizer',
           style: TextStyle(fontWeight: FontWeight.w500),
         ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.exit_to_app),
+            onPressed: () => SystemNavigator.pop(),
+          ),
+        ],
       ),
       body: SafeArea(
         bottom: true,

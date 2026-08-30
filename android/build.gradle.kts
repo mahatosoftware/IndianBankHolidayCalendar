@@ -19,6 +19,15 @@ subprojects {
     project.evaluationDependsOn(":app")
 }
 
+subprojects {
+    project.configurations.all {
+        resolutionStrategy {
+            force("com.android.billingclient:billing:9.1.0")
+            force("com.android.billingclient:billing-ktx:9.1.0")
+        }
+    }
+}
+
 tasks.register<Delete>("clean") {
     delete(rootProject.layout.buildDirectory)
 }
